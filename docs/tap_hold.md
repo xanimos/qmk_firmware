@@ -229,7 +229,7 @@ However, this slightly different sequence will not be affected by the “permiss
   | +-------------+           |        |
   |       +--------------+    |        |
   |       | KC_L         |    |        |
-  |       +--------------+    |        |
+  |       +--------------+    |       
   +---------------------------|--------+
 ```
 

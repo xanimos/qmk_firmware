@@ -10,8 +10,8 @@ static const char * sendstring_commands[] = {
     "git reset --soft ",
     "git branch --list",
     "git checkout ",
-    "git checkout -b",
-    "git remote add upstream",
+    "git checkout -b ",
+    "git remote add upstream ",
     "git fetch ",
     "git pull",
     "git pull upstream ",
@@ -24,7 +24,8 @@ static const char * sendstring_commands[] = {
     "git log",
     "git stash",
     "git stash list",
-    "git stash pop",
+    "git stash pop ",
+    "git stash show ",
     "git restore --staged "
 };
 
@@ -55,6 +56,7 @@ enum macro_keycodes {
     G_STSH,                 // git stash
     G_STLS,                 // git stash list
     G_STSP,                 // git stash pop
+    G_STSW,                 // git stash show
     G_RSTS                  // git restore --staged
 };
 
@@ -88,8 +90,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_GIT] = LAYOUT( /* [> Git Commands <] */
-    G_PUPST,    G_PULL,     G_PUSH,     G_PSORG,    G_PSFWL,         G_INIT,    G_CLONE,    G_REMTE,    G_RESET,    _______,
-    G_ADD,      G_STAT,     G_DIFF,     G_FETCH,    G_LOG,           G_STSH,    G_STLS,     G_STSP,     G_RSTS,     _______,
+    G_PUPST,    G_PULL,     G_PUSH,     G_PSORG,    G_PSFWL,         G_INIT,    G_CLONE,    G_REMTE,    G_RESET,    G_RSTS,
+    G_ADD,      G_STAT,     G_DIFF,     G_FETCH,    G_LOG,           G_STLS,    G_STSH,     G_STSP,     G_STSW,     _______,
     G_CHECKB,   G_CHECK,    G_COMM,     G_COMSG,    G_BRANH,         _______,   _______,    _______,    _______,    _______,
                                     _______, TD(AL_MOD),               _______, _______
   ),
@@ -97,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_MODS] = LAYOUT( /* [> Mods <] */
     C(KC_TAB),C(S(KC_ESC)), _______,    _______,    _______,         _______,    _______,    _______,    _______,    _______,
     KC_TAB,     KC_ESC,     _______,    LCA(KC_DEL),_______,         _______, TD(MH_CTL), TD(MH_ALT), TD(MH_SFT), TD(MH_GUI),
-    A(KC_TAB),  _______,    _______,    _______,    _______,         MOD_BOOT,   _______,    _______,    _______,    _______,
+    A(KC_TAB),  C(KC_X),    C(KC_C),    C(KC_V),    _______,         MOD_BOOT,   _______,    _______,    _______,    _______,
                                      _______,     _______,              TO(_GAMING), KC_ENT
   ),
 

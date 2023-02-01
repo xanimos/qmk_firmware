@@ -40,7 +40,11 @@ void tap_dance_mod_hold_reset(qk_tap_dance_state_t *state, void *user_data) { }
 
 td_state_t cur_dance(qk_tap_dance_state_t *state) {
     if (state->count == 1) {
-        if (state->interrupted || !state->pressed)
+        if (!state->pressed
+#ifndef PERMISSIVE_HOLD
+         || state->interrupted
+#endif
+         )
             return TD_SINGLE_TAP;
         return TD_SINGLE_HOLD;
     }
